@@ -1,8 +1,8 @@
 "use strict"
-var enemyNum = 6;
+var enemyNum = 5;
 var collision = 0;
 var score = 0;
-var myLives = 6;
+var myLives = 4;
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -11,7 +11,7 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = Math.random() * 384;
-    this.y = (Math.floor(Math.random() * 3) * 80) + 80;
+    this.y = (Math.floor(Math.random() * 3) * 80) + 65;
 }
 
 // Update the enemy's position, required method for game
@@ -23,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + (dt * 10);
     if (this.x > 505) {
         this.x = 0;
-        this.y = (Math.floor(Math.random() * 3) * 80) + 80;
+        this.y = (Math.floor(Math.random() * 3) * 80) + 65;
     }    
 }
 
@@ -37,8 +37,8 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function() {
     this.sprite = 'images/char-princess-girl.png';
-    this.x = (555 / 2) - 50;
-    this.y = 395;
+    this.x = 201.5;
+    this.y = 410;
 
 }
 
@@ -66,15 +66,15 @@ Player.prototype.update = function() {
         }
     }
     else if (this.currKey ==='up') {
-        this.y = this.y - 80;
+        this.y = this.y - 83;
         //if (this.y < 80) {
          //   this.reset();
         //}
     }
-    else if (this.currlKey === 'down') {
-        this.y = this.y + 80;
-        if (this.y > 395) {
-        this.y = 395;  
+    else if (this.currKey === 'down') {
+        this.y = this.y + 83;
+        if (this.y > 410) {
+        this.y = 410;  
         }
     }
     this.currKey = null;
@@ -92,8 +92,8 @@ Player.prototype.handleInput = function(myKey) {
 Player.prototype.reset = function() {
     if (myLives > 0) {
         console.log("resetting")
-        this.x = (555 / 2) - 50;
-        this.y = 395;
+        this.x = 201.5;
+        this.y = 410;
     }
     else {
 
