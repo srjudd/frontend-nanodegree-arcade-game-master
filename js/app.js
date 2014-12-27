@@ -1,7 +1,8 @@
 "use strict"
-var myLives = 6;
 var enemyNum = 6;
 var collision = 0;
+var score = 0;
+var myLives = 6;
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -10,7 +11,7 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = Math.random() * 384;
-    this.y = (Math.floor(Math.random() * 4) * 80) + 80;
+    this.y = (Math.floor(Math.random() * 3) * 80) + 80;
 }
 
 // Update the enemy's position, required method for game
@@ -19,10 +20,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + (dt * 1);
+    this.x = this.x + (dt * 10);
     if (this.x > 505) {
         this.x = 0;
-        this.y = (Math.floor(Math.random() * 4) * 80) + 80;
+        this.y = (Math.floor(Math.random() * 3) * 80) + 80;
     }    
 }
 
@@ -42,9 +43,15 @@ var Player = function() {
 }
 
 Player.prototype.update = function() {
-    if (this.y < 80 || collision) {
-        player.reset;
+    if (this.y < 60 || collision) {
         myLives = myLives - 1;
+        console.log(myLives);
+        this.reset();
+    }
+    else if (this.y < 100) {
+        score = score + 1;
+        console.log(score);
+        this.reset();
     }
     else if (this.currKey === 'right') {
         this.x = this.x + 100;
@@ -60,9 +67,9 @@ Player.prototype.update = function() {
     }
     else if (this.currKey ==='up') {
         this.y = this.y - 80;
-        if (this.y < 80) {
-            player.reset;
-        }
+        //if (this.y < 80) {
+         //   this.reset();
+        //}
     }
     else if (this.currlKey === 'down') {
         this.y = this.y + 80;
@@ -70,7 +77,7 @@ Player.prototype.update = function() {
         this.y = 395;  
         }
     }
-    return;
+    this.currKey = null;
 }
 
 Player.prototype.render = function() {
@@ -79,6 +86,19 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(myKey) {
     this.currKey = myKey;
+
+}
+
+Player.prototype.reset = function() {
+    if (myLives > 0) {
+        console.log("resetting")
+        this.x = (555 / 2) - 50;
+        this.y = 395;
+    }
+    else {
+
+        console.log("Game Over");
+    }
 
 }
 // Now instantiate your objects.
