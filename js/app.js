@@ -12,6 +12,7 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     this.x = Math.random() * 384;
     this.y = (Math.floor(Math.random() * 3) * 80) + 65;
+    console.log(this.y);
 }
 
 // Update the enemy's position, required method for game
@@ -43,20 +44,22 @@ var Player = function() {
 }
 
 Player.prototype.update = function() {
-    if (this.y < 60 || collision) {
+    checkCollisions(this.x, this.y);
+    if (collision) {
         myLives = myLives - 1;
-        console.log(myLives);
+        console.log("Lives: ", myLives);
         this.reset();
+        collision = 0;
     }
-    else if (this.y < 100) {
+    else if (this.y < 10) {
         score = score + 1;
-        console.log(score);
+        console.log("score:", score);
         this.reset();
     }
     else if (this.currKey === 'right') {
         this.x = this.x + 100;
-        if (this.x > 455) {
-            this.x = 455;
+        if (this.x > 401.5) {
+            this.x = 401.5;
         }
     }
     else if (this.currKey === 'left') {
@@ -66,13 +69,13 @@ Player.prototype.update = function() {
         }
     }
     else if (this.currKey ==='up') {
-        this.y = this.y - 83;
+        this.y = this.y - 82;
         //if (this.y < 80) {
          //   this.reset();
         //}
     }
     else if (this.currKey === 'down') {
-        this.y = this.y + 83;
+        this.y = this.y + 82;
         if (this.y > 410) {
         this.y = 410;  
         }
@@ -101,6 +104,35 @@ Player.prototype.reset = function() {
     }
 
 }
+
+
+function checkCollisions(playerX, playerY) { // 1 function bracket
+    for (var b = 0; b < enemyNum; b++) { // 2 for b bracket
+        var thisEnemy = allEnemies[b];
+        //console.log("playerY=", playerY, " thisEnemy.y=", thisEnemy.y);
+        if ((playerY === 246 && thisEnemy.y === 225) || (playerY === 164 && thisEnemy.y === 145) 
+            || (playerY === 82 && thisEnemy.y === 65)) { // 3 if player is dangerous row
+            console.log("playerY=", playerY, " thisEnemy.y=", thisEnemy.y, "Dangerous row");
+            //Is bug on left or maybe on top of the player?
+            if ((playerX + 15) >= (thisEnemy.x -1)) { // 4 enemy on left
+                if ((playerX - thisEnemy.x) < 98) { // 5left collision check
+                    collision = 1;
+                    console.log("left collision", collision)
+                    return;
+                } // end 5 left collision check
+            }  //end  4 all left
+                //since bug not on left or on top, bug on right.  
+            else if ((thisEnemy.x - playerX) < 75) { // 6 else right collision check
+                 collision = 1;
+                 console.log("right collision")
+                 return;
+                } // end 6 right collision
+            
+        }  //3 end dangerous row
+    }  //2 end for b
+
+}//1 end function
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
