@@ -3,7 +3,10 @@ var enemyNum = 5;
 var collision = 0;
 var score = 0;
 var myLives = 4;
-var enemySpeed = 10;
+var enemySpeed = 50;
+var scoreBoard = document.getElementById('score');
+scoreBoard.innerHTML = "Lives\: " + myLives + "\; Score\: " + score;
+var instructions = document.getElementById('instructions')
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -22,13 +25,13 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    if (myLives < 1) {
+    if (myLives === 0) {
         enemySpeed = 500;
         console.log("fast enemy!")
     }
     this.x = this.x + (dt * enemySpeed);
     if (this.x > 505) {
-        this.x = 0;
+        this.x = 0 - Math.random() * 10;
         this.y = (Math.floor(Math.random() * 3) * 80) + 65;
     }    
 }
@@ -48,49 +51,48 @@ var Player = function() {
 
 }
 
-Player.prototype.update = function() {
-    if (myLives > 0) {
+Player.prototype.update = function() {//1 function
+    if (myLives > 0) {//2 if living
+        console.log(myLives, score);
 
 
     checkCollisions(this.x, this.y);
-    if (collision) {
+    if (collision) {//3if collision
         myLives = myLives - 1;
-        console.log("Lives: ", myLives);
+        scoreBoard.innerHTML = "Lives\: " + myLives + "\; Score\: " + score;    
         this.reset();
         collision = 0;
-    }
-    else if (this.y < 10) {
+    }//3end  collision
+    else if (this.y < 10) {//if no collision and in water 4
         score = score + 1;
-        console.log("score:", score);
+        scoreBoard.innerHTML = "Lives\: " + myLives + "\; Score\: " + score;
         this.reset();
-    }
-    else if (this.currKey === 'right') {
+    }//4 end if water
+    else if (this.currKey === 'right') {//5 if right
         this.x = this.x + 100;
-        if (this.x > 401.5) {
+        if (this.x > 401.5) {//6 if too far right
             this.x = 401.5;
-        }
-    }
-    else if (this.currKey === 'left') {
+        }//6end if too far right
+    }//5 end right
+    else if (this.currKey === 'left') {//7if left
         this.x = this.x - 100;
-        if (this.x < 0) {
+        if (this.x < 0) {//8 if too far left
             this.x = 0;
-        }
-    }
-    else if (this.currKey ==='up') {
+        }//end 8 too far left
+    }//end 7 left
+    else if (this.currKey ==='up') {//9if up
         this.y = this.y - 82;
-        //if (this.y < 80) {
-         //   this.reset();
-        //}
-    }
-    else if (this.currKey === 'down') {
+
+    }//end 9 if up
+    else if (this.currKey === 'down') {//10 if down
         this.y = this.y + 82;
-        if (this.y > 410) {
+        if (this.y > 410) {//11if too far down
         this.y = 410;  
-        }
-    }
-}//end if
+        }//end 11 too far down
+    }// end 11 down
+}//end 2 if
     this.currKey = null;
-}
+}//end function
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -104,13 +106,9 @@ Player.prototype.handleInput = function(myKey) {
 Player.prototype.reset = function() {
         this.x = 201.5;
         this.y = 410;
-    if (myLives > 0) {
-        console.log("resetting")
-
-    }
-    else {
+    if (myLives === 0) {
         player.sprite = 'images/char-princess-girl-dead.png'
-        console.log("Game Over");
+        instructions.innerHTML = "GAME OVER. To Play again, reload the page."
     }
 
 }

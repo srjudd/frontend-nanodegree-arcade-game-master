@@ -1,4 +1,10 @@
 body {
     text-align: center;
     font-family: "Comic Sans MS", cursive;
+    color: red;
+}
+#instructions {
+	margin: auto;
+	width: 500px;
+	font-size: 125%;
 }
