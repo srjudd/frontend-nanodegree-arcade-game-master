@@ -69,9 +69,9 @@ var Engine = (function(global) {
         main();
     }
 
-    function checkCollisions() {
+    //function checkCollisions() {
         //is there a collision
-    }
+    //}
 
 
     /* This function is called by main (our game loop) and itself calls all
@@ -179,7 +179,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-princess-girl.png'
+        'images/char-princess-girl.png',
+        'images/char-princess-girl-dead.png'
     ]);
     Resources.onReady(init);
 
