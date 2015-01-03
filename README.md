@@ -11,6 +11,10 @@ to the image folder.</p>
 game needs all the files in this repository with the exception of some extra 
 game sprites in the images folder, which can be used by a developer in 
 modifying or extending this game.</p>
+<p>The game can be played at the following site. <br>
+<a href="https://srjudd.github.io/frontend-nanodegree-arcade-game-master/"
+target="_blank">https://srjudd.github.io/frontend-nanodegree-arcade-game-master/
+</a></p>
 
 <h2>The following additional resources were used.</h2>
 <ul>
