@@ -12,6 +12,8 @@
  * This engine is available globally via the Engine variable and it also makes
  * the canvas' context (ctx) object globally available to make writing app.js
  * a little simpler to work with.
+ * A minor edit to the image load call was made to load a different player 
+ * image (the princess) and a dead princess image for the end of the game.
  */
 
 var Engine = (function(global) {
@@ -22,18 +24,12 @@ var Engine = (function(global) {
     var doc = global.document,
         win = global.window,
         canvas = doc.createElement('canvas'),
-        //scoreBoard = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        //ctxScore = scoreBoard.getContext('2d'),
         lastTime;
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
-
-    //scoreBoard.width = 125;
-    //scoreBoard.height = 606;
-    //doc.body.appendChild(scoreBoard);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -74,10 +70,6 @@ var Engine = (function(global) {
         lastTime = Date.now();
         main();
     }
-
-    //function checkCollisions() {
-        //is there a collision
-    //}
 
 
     /* This function is called by main (our game loop) and itself calls all
