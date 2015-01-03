@@ -160,11 +160,9 @@ function checkCollisions(playerX, playerY) {
                     collision = 1;
                     return;
                 }
-
             }
         }
     }
-
 }
 
 /* Called by player's update method when conditions are met to go up a level. 
@@ -186,7 +184,8 @@ function drawScoreboard() {
 
 /******************** Section 5 ************************************************
 /* The code section starts the game by placing the scoreboard, instantiating 
-* objects, listening for keyboard input. Once the player and the enemies are instantiated
+* objects, listening for keyboard input. 
+* Once the player and the enemies are instantiated, the game begins.
 */
 
 drawScoreboard();
