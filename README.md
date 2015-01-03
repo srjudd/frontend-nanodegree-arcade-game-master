@@ -19,15 +19,23 @@ modifying or extending this game.</p>
 	<li>Inspiration was provided by a number of student projects from cohort 1. 
 		Particular games examined early in this project included:
 		<ul>
-			<li>http://dw-frogger.appspot.com</li>
-			<li>http://victoria-front-enddev.github.io/Udacity-Project-3/</li>
+			<li><a href="http://dw-frogger.appspot.com" target="_blank">
+			http://dw-frogger.appspot.com</a></li>
+			<li><a href=
+			"http://victoria-front-enddev.github.io/Udacity-Project-3/"
+			target="_blank">
+			http://victoria-front-enddev.github.io/Udacity-Project-3</a></li>
 		</ul>
 	</li>
 	<li>Mozilla Development Network and W3C Schools provided wonderful syntax 
 	examples for math, array, string, and object prototype methods. 
 		<ul>
-			<li>https://developer.mozilla.org/en-US/docs/Web/JavaScript</li>
-			<li>http://www.w3schools.com/js/default.asp</li>
+			<li><a href=
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript" 
+			target="_blank">
+			https://developer.mozilla.org/en-US/docs/Web/JavaScript</a></li>
+			<li><a href="http://www.w3schools.com/js/default.asp" 
+			target="_blank">http://www.w3schools.com/js/default.asp</li>
 		</ul>
 	</li>
 	<li>Adobe FireWorks was used to analyze image sprites to provide canvas 
@@ -35,17 +43,22 @@ modifying or extending this game.</p>
 		provided sprite.</li>
 	<li>Sublime Text 3 was the code editor used. Linting tools are still not 
 		working for this developer.</li>
-	<li>Chrome Developer Tools were used to test and debug code.
-		Google JavaScript StyleGuide was followed to the best of the developer's 
-		ability. 
-		https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
-		</li>
+	<li>Chrome Developer Tools were used to test and debug code.</li>
+	<li>Google JavaScript StyleGuide was followed to the best of the developer's 
+		ability. <a href=
+		"https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml"
+		 target="_blank">https://google-styleguide.googlecode.com/svn/trunk/
+		 javascriptguide.xml</a></li>
 	<li>JS Doc was attempted using the following references:
 		<ul>
-			<li>http://usejsdoc.org/</li>
-			<li>https://github.com/kimonolabs/JSDoc-Style-Guide</li>
+			<li><a href'"http://usejsdoc.org/" target="_blank">
+			http://usejsdoc.org/</li>
+			<li><a href="https://github.com/kimonolabs/JSDoc-Style-Guide" 
+			target="_blank">https://github.com/kimonolabs/JSDoc-Style-Guide</a>
+			</li>
 		</ul>
 	</li>
-	<li>JS Beautifier was used to clean up formatting. http://jsbeautifier.org
-	</li>
+	<li>JS Beautifier was used to clean up formatting. 
+	<a href="http://jsbeautifier.org" target="_blank">http://jsbeautifier.org
+	</a></li>
 </ul>
