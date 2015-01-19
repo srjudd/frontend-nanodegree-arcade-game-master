@@ -33,7 +33,7 @@ var Enemy = function () {
     this.sprite = 'images/enemy-bug.png';
     this.x = Math.random() * 384;
     this.y = (Math.floor(Math.random() * 3) * 80) + 65;
-}
+};
 
 /* Update the enemy's position, required method for game
  * Parameter: dt, a time delta between ticks to ensure that the game runs
@@ -57,56 +57,55 @@ Enemy.prototype.update = function (dt) {
 Enemy.prototype.render = function () {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-    /******************** Section 3 ************************************************
-     * This section of code sets up the player class.
-     * The player class has an initial position and a sprite. It also has update(),
-     * render(), handleInput(), and reset() methods.
-     */
+/******************** Section 3 ************************************************
+ * This section of code sets up the player class.
+ * The player class has an initial position and a sprite. It also has update(),
+ * render(), handleInput(), and reset() methods.
+ */
 var Player = function () {
-        this.sprite = 'images/char-princess-girl.png';
-        this.x = 201.5;
-        this.y = 410;
-    }
-    /* This method checks for a "live" player, then for collisions and for player 
-     * reaching the water and handles these special situations.
-     * Otherwise it updates the player position based on keyboard input
-     * but does not allow the player to exceed the left and right keyboard margins.
-     */
+    this.sprite = 'images/char-princess-girl.png';
+    this.x = 201.5;
+    this.y = 410;
+};
+/* This method checks for a "live" player, then for collisions and for player 
+ * reaching the water and handles these special situations.
+ * Otherwise it updates the player position based on keyboard input
+ * but does not allow the player to exceed the left and right keyboard margins.
+ */
 Player.prototype.update = function () {
-        if (myLives > 0) {
+    if (myLives > 0) {
+        checkCollisions(this.x, this.y);
+        if (collision) {
+            myLives = myLives - 1;
+            this.reset();
+            collision = 0;
+        } else if (this.y < 82) { // Player in water
+            score = score + 1;
+            if (score % 5 === 0) levelUp();
+            this.reset();
+        } else if (this.currKey === 'right') {
+            this.x = this.x + 100;
+            if (this.x > 401.5) {
+                this.x = 401.5;
+            }
+        } else if (this.currKey === 'left') {
+            this.x = this.x - 100;
+            if (this.x < 0) {
+                this.x = 0;
+            }
+        } else if (this.currKey === 'up') {
+            this.y = this.y - 82;
 
-            checkCollisions(this.x, this.y);
-            if (collision) {
-                myLives = myLives - 1;
-                this.reset();
-                collision = 0;
-            } else if (this.y < 82) { // Player in water
-                score = score + 1;
-                if (score % 5 === 0) levelUp();
-                this.reset();
-            } else if (this.currKey === 'right') {
-                this.x = this.x + 100;
-                if (this.x > 401.5) {
-                    this.x = 401.5;
-                }
-            } else if (this.currKey === 'left') {
-                this.x = this.x - 100;
-                if (this.x < 0) {
-                    this.x = 0;
-                }
-            } else if (this.currKey === 'up') {
-                this.y = this.y - 82;
-
-            } else if (this.currKey === 'down') {
-                this.y = this.y + 82;
-                if (this.y > 410) {
-                    this.y = 410;
-                }
+        } else if (this.currKey === 'down') {
+            this.y = this.y + 82;
+            if (this.y > 410) {
+                this.y = 410;
             }
         }
-        this.currKey = null; // Resets the key info so that it doesn't stick.
     }
-    /** Used by engine.js. */
+    this.currKey = null; // Resets the key info so that it doesn't stick.
+}
+/** Used by engine.js. */
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
@@ -207,5 +206,5 @@ document.addEventListener('keyup', function (e) {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+player.handleInput(allowedKeys[e.keyCode]);
 });

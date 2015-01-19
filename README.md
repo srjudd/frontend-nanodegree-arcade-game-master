@@ -15,6 +15,18 @@ modifying or extending this game.</p>
 <a href="https://srjudd.github.io/frontend-nanodegree-arcade-game-master/"
 target="_blank">https://srjudd.github.io/frontend-nanodegree-arcade-game-master/
 </a></p>
+<h2>How to Play</h2>
+<p>The goal of this game is to earn points by moving the princess across the 
+board so that she can jump into the water. The left, right, up, and down arrow 
+keys will allow the princess to jump to the next tile in the chosen direction, 
+if movement in that direction is possible. The princess must avoid the giant 
+water bugs that move across the board; collision with a bug will cause the loss 
+of a princess life. Gaining five points takes you to the next level of the 
+game, with a bonus of five points and an additional life. An additional giant 
+water bug joins the game when you level up.</p>
+<p>The game ends when your princess runs out of lives. To replay,
+reload the game page.</p>
+
 
 <h2>The following additional resources were used.</h2>
 <ul>
@@ -39,7 +51,7 @@ target="_blank">https://srjudd.github.io/frontend-nanodegree-arcade-game-master/
 			target="_blank">
 			https://developer.mozilla.org/en-US/docs/Web/JavaScript</a></li>
 			<li><a href="http://www.w3schools.com/js/default.asp" 
-			target="_blank">http://www.w3schools.com/js/default.asp</li>
+			target="_blank">http://www.w3schools.com/js/default.asp</a></li>
 		</ul>
 	</li>
 	<li>Adobe FireWorks was used to analyze image sprites to provide canvas 
@@ -55,8 +67,8 @@ target="_blank">https://srjudd.github.io/frontend-nanodegree-arcade-game-master/
 		 javascriptguide.xml</a></li>
 	<li>JS Doc was attempted using the following references:
 		<ul>
-			<li><a href'"http://usejsdoc.org/" target="_blank">
-			http://usejsdoc.org/</li>
+			<li><a href="http://usejsdoc.org/" target="_blank">
+			http://usejsdoc.org/</a></li>
 			<li><a href="https://github.com/kimonolabs/JSDoc-Style-Guide" 
 			target="_blank">https://github.com/kimonolabs/JSDoc-Style-Guide</a>
 			</li>
