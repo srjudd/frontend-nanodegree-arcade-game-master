@@ -78,3 +78,11 @@ reload the game page.</p>
 	<a href="http://jsbeautifier.org" target="_blank">http://jsbeautifier.org
 	</a></li>
 </ul>
+<h2>Honor Code Statement</h2>
+<p>I hereby confirm that all project submissions consist of my own work. 
+Accordingly, I will document and cite the origins of any part(s) of my project 
+submissions that were taken from websites, books, forums, blog posts, 
+github repositories, or any other source and explain why I used them for any 
+part of my submission. I understand that I may be asked to explain my work in 
+a video call with a Udacity Coach before my Nanodegree is conferred.
+</p>
