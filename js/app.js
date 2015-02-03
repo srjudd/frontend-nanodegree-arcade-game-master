@@ -51,12 +51,12 @@ Enemy.prototype.update = function (dt) {
         //The enemy can tandomly enter on any of the three stone rows.
         this.y = (Math.floor(Math.random() * 3) * 80) + 65;
     }
-}
+};
 
 /** This method draws the enemy on the screen, required method for game. */
 Enemy.prototype.render = function () {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+    };
 /******************** Section 3 ************************************************
  * This section of code sets up the player class.
  * The player class has an initial position and a sprite. It also has update(),
@@ -104,16 +104,16 @@ Player.prototype.update = function () {
         }
     }
     this.currKey = null; // Resets the key info so that it doesn't stick.
-}
+};
 /** Used by engine.js. */
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};
 
 /* Binds the current key to a Player property. */
 Player.prototype.handleInput = function (myKey) {
     this.currKey = myKey;
-}
+};
 
 /* Puts the player back at the starting point. If the player is out of lives,
  * the player sprite is switched and game instructions are updated.
@@ -127,7 +127,7 @@ Player.prototype.reset = function () {
         instructions.innerHTML = 'GAME OVER. To Play again, reload the page.'
     }
 
-}
+};
 
 /******************** Section 4 ************************************************
  * These functions monitor and update the progress of the game when they are
